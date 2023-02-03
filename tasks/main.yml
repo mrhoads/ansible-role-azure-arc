@@ -59,7 +59,7 @@
 
 - name: Connect the Connected Machine Agent on Linux servers to Azure Arc
   become: yes
-  shell: azcmagent connect --service-principal-id "{{ azure.SERVICE_PRINCIPAL_ID }}" --service-principal-secret "{{ azure.SERVICE_PRINCIPAL_SECRET }}" --resource-group "{{ azure.RESOURCE_GROUP }}" --tenant-id "{{ azure.TENANT_ID }}" --location "{{ azure.LOCATION }}" --subscription-id "{{ azure.SUBSCRIPTION_ID }}"
+  shell: azcmagent connect --service-principal-id "{{ SERVICE_PRINCIPAL_ID }}" --service-principal-secret "{{ SERVICE_PRINCIPAL_SECRET }}" --resource-group "{{ azure.RESOURCE_GROUP }}" --tenant-id "{{ azure.TENANT_ID }}" --location "{{ azure.LOCATION }}" --subscription-id "{{azure.SUBSCRIPTION_ID }}"
   when:  (ansible_system == 'Linux') and (azcmagent_lnx_connected.rc is defined and azcmagent_lnx_connected.rc != 0)
 
 - name: Connect the Connected Machine Agent on Windows servers to Azure
