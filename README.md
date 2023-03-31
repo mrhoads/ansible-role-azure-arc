@@ -38,12 +38,12 @@ Below is an example of using this role to onboard the group *arc* to Azure with 
     - role: mrhoads.ansible-role-azure-arc
       vars:
         azure:
-          SERVICE_PRINCIPAL_ID: ba152a4f-d0f3-4ce5-9971-c14d71f2f4f7
+          SERVICE_PRINCIPAL_ID: <service principal ID>
           SERVICE_PRINCIPAL_SECRET: "{{ lookup('env','SERVICE_PRINCIPAL_SECRET') }}"
-          RESOURCE_GROUP: demo-arc-rg
-          TENANT_ID: 98ad103d-bc7c-44ec-b169-22f8543c27ba
-          LOCATION: centralus
-          SUBSCRIPTION_ID: ff6ad0fe-2e20-4569-9e84-fa4654519a40
+          RESOURCE_GROUP: <resource group name>
+          TENANT_ID: <tenant ID>
+          LOCATION: <Azure region>
+          SUBSCRIPTION_ID: <subscription ID>
 ```
 
 License
