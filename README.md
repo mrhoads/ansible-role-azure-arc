@@ -6,24 +6,31 @@ Onboard machines to Azure Arc
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+This role requires that an appropriately scoped service principal is created in order to be onboarded.
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+This role requires the following vars:
+- RESOURCE_GROUP <-- which resource group the server(s) will be onboarded to
+- SUBSCRIPTION_ID <-- the subscription the server(s) will be onboarded to
+- LOCATION <-- the Azure region in which the server(s) will be onboarded to
+- SERVICE_PRINCIPAL_ID <-- the service principal ID doing the onboarding
+- SERVICE_PRINCIPAL_SECRET <-- the service principal client secret doing the onboarding
+
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+This role has no external dependencies.
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+Below is an example of using this role to onboard the group *arc* to Azure with the SERVICE_PRINCIPAL_SECRET set as an environment variable 
 
 
+```
 ---
 - hosts: arc
   become: true
@@ -37,7 +44,8 @@ Including an example of how to use your role (for instance, with variables passe
           TENANT_ID: 98ad103d-bc7c-44ec-b169-22f8543c27ba
           LOCATION: centralus
           SUBSCRIPTION_ID: ff6ad0fe-2e20-4569-9e84-fa4654519a40
-  
+```
+
 License
 -------
 
